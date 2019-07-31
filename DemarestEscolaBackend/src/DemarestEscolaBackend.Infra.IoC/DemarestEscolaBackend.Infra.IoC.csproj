@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemarestEscolaBackend.Domain\DemarestEscolaBackend.Domain.csproj" />
+    <ProjectReference Include="..\DemarestEscolaBackend.Infra.Data\DemarestEscolaBackend.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

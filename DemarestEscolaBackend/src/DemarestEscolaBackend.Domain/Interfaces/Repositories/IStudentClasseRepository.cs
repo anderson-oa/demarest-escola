@@ -1,0 +1,10 @@
+﻿using DemarestEscolaBackend.Domain.Entities;
+using System.Collections.Generic;
+
+namespace DemarestEscolaBackend.Domain.Interfaces.Repositories
+{
+    public interface IStudentClasseRepository
+    {
+        IEnumerable<StudentClasse> GetByStudent(int studentId);
+    }
+}
