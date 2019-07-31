@@ -1,0 +1,44 @@
+<h1>Demarest - Escola</h1>
+
+<div class="tabs">
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabChange($event)">
+    <mat-tab label="Inserir notas">
+      <app-inserir-nota></app-inserir-nota>
+    </mat-tab>
+    <mat-tab label="Resultados">
+      <div *ngFor="let exam of exams" style="padding-bottom: 3rem;border-bottom: 1px solid #ddd;">
+        <h3>{{ exam.student.name }} {{ exam.student.surname }}</h3>
+
+        <mat-table [dataSource]="exam.items" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="semester">
+            <mat-header-cell *matHeaderCellDef> Semestre </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.semester}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="classe">
+            <mat-header-cell *matHeaderCellDef> Matéria </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.classe}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="grade">
+            <mat-header-cell *matHeaderCellDef> Nota </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.grade}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="aprovacao">
+            <mat-header-cell *matHeaderCellDef> Aprovação </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.aprovacao}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

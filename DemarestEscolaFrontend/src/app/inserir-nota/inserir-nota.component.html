@@ -1,0 +1,38 @@
+<form #formDirective="ngForm" [formGroup]="inserirNotaForm" (submit)="submit()" [class.loading]="loading">
+  <br>
+  <mat-form-field class="full-width">
+    <mat-label>Aluno</mat-label>
+    <mat-select formControlName="studentId">
+      <mat-option *ngFor="let student of students" [value]="student.id" (onSelectionChange)="getClasse(student.id)">
+        {{student.name }} {{student.surname }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Classe</mat-label>
+    <mat-select formControlName="studentClasseId">
+      <mat-option *ngFor="let sc of studentClasses" [value]="sc.id">
+        {{ sc.classe.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Semestre</mat-label>
+    <mat-select formControlName="semester">
+      <mat-option *ngFor="let semester of semesters" [value]="semester.value">
+        {{semester.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Nota</mat-label>
+    <input matInput formControlName="grade">
+  </mat-form-field>
+
+  <div style="text-align: right">
+    <button mat-raised-button color="primary">Confirmar</button>
+  </div>
+</form>
